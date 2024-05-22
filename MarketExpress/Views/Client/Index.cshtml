@@ -1,0 +1,80 @@
+﻿@model List<ClientModel>
+@{
+    ViewData["Title"] = "List client";
+}
+<div class="text-center">
+
+    <div class="gap2 d-md-flex justify-content-md-end">
+        <a class="btn btn-success role-"Button" asp-controller="Client" asp-action="Add">Add Client</a>
+    </div>
+
+    <br />
+    <br />
+
+    @if (TempData["MessageSucess"] != null)
+    {
+            <div class="alert alert-success" role="alert">
+             <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+             @TempData["MessageSucess"]
+    </div>
+
+    }
+
+    @if (TempData["MessageError"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+            @TempData["MessageError"]
+        </div>
+
+    }
+
+    <br />
+
+    <h1 class="display-4"> List client </h1>
+    <br />
+    <table class="table" id="table-client">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Birth date</th>
+                <th scope="col">Adress</th>
+                <th scope="col">Locality</th>
+                <th scope="col">Postal code</th>
+                <th scope="col">NIF</th>
+                <th scope="col">Customer number</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+           @if (Model != null && Model.Any())
+            {
+                foreach(ClientModel client in Model)
+                {
+                    <tr>
+                        <th scope="row">@client.Id</th>
+                        <td>@client.Name</td>
+                        <td>@client.Email</td>
+                        <td>@client.Phone</td>
+                        <td>@client.BirthDate</td>
+                        <td>@client.Adress</td>
+                        <td>@client.Locality</td>
+                        <td>@client.PostalCode</td>
+                        <td>@client.NIF</td>
+                        <td>@client.CustumerNumber</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@client.Id" asp-controller="Client" asp-action="Edit">Edit</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@client.Id" asp-controller="Client" asp-action="DeleteConfirmation">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
