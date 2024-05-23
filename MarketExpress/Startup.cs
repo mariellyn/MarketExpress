@@ -30,6 +30,9 @@ namespace MarketExpress
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ISalesRepository, SalesRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
         }

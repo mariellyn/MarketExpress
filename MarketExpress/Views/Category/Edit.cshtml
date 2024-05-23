@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model CategoryModel
+
 @{
+    ViewData["Title"] = "Edit category";
 }
+
+<div class="text-center">
+    <h1 class="display-4">Edit Category</h1>
+</div>
+
+<form asp-controller="Category" asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="categoryName">Name</label>
+        <input type="text" asp-for="Name" class="form-control" id="categoryName" placeholder="Name Category" required>
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        <label for="categoryDescription">Description</label>
+        <textarea asp-for="Description" class="form-control" id="categoryDescription" rows="3" placeholder="Description Category"></textarea>
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Edit</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Category" asp-action="Index" role="button">Back</a>
+
+</form>

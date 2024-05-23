@@ -14,5 +14,9 @@ namespace MarketExpress.Data
         public BancoContext(DbContextOptions<BancoContext>options) : base(options) { }
 
         public DbSet<ClientModel> Clients { get; set; }
+        public DbSet<CategoryModel> Category { get; set; }
+        public DbSet<ProductModel> Product { get; set; }
+        public DbSet<SalesModel> Sales { get; set; }
+
     }
 }

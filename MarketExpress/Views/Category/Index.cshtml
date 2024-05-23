@@ -1,20 +1,37 @@
-﻿@{
+﻿@model List<CategoryModel>
+
+@{
     ViewData["Title"] = "Category";
 }
 
 <div class="text-center">
-
     <div class="gap2 d-md-flex justify-content-md-end">
-        <a class="btn btn-success role-"button" asp-controller="Category" asp-action="Add">Add Category</a>
+        <a class="btn btn-success role-" button" asp-controller="Category" asp-action="Add">Add Category</a>
     </div>
 
     <br />
     <br />
 
+    @if (TempData["MessageSucess"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MessageSucess"]
+        </div>
+    }
+
+    @if (TempData["MessageError"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MessageError"]
+        </div>
+    }
+
     <h1 class="display-4"> List Category </h1>
     <br />
 
-    <table class="table">
+    <table class="table" id="table-client">
         <thead>
             <tr>
                 <th scope="col"></th>
@@ -24,41 +41,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (CategoryModel category in Model)
+                {
+                    <tr>
+                        <th scope="row">@category.Id</th>
+                        <td>@category.Name</td>
+                        <td>@category.Description</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@category.Id" asp-controller="Category" asp-action="Edit">Edit</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@category.Id" asp-controller="Category" asp-action="DeleteConfirmation">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
-
-
 </div>

@@ -18,7 +18,7 @@ namespace MarketExpress.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Write Phone")]
-        [Phone(ErrorMessage = "The email is not valid !")]
+        [Phone(ErrorMessage = "The phone is not valid !")]
         public string Phone { get; set; }
 
         public string BirthDate { get; set; }

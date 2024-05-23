@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<SalesModel>
+
+@{
     ViewData["Title"] = "Sales";
 }
 
@@ -11,9 +13,25 @@
     <br />
     <br />
 
+    @if (TempData["MessageSucess"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MessageSucess"]
+        </div>
+    }
+
+    @if (TempData["MessageError"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MessageError"]
+        </div>
+    }
+
     <h1 class="display-4"> List Sales </h1>
     <br />
-    <table class="table">
+    <table class="table" id="table-client">
         <thead>
             <tr>
                 <th scope="col"></th>
@@ -23,67 +41,39 @@
                 <th scope="col">Client</th>
                 <th scope="col">Products Sold</th>
                 <th scope="col">Observations</th>
-                <th scope="col">Final value</th>
+                <th scope="col">Final final</th>
                 <th scope="col">Order status</th>
                 <th scope="col">Payment</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>do</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>do</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>do</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary">Edit</a>
-                        <a role="button" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
+
+            @if (Model != null && Model.Any())
+            {
+                foreach (SalesModel sales in Model)
+                {
+                    <tr>
+                        <th scope="row">@sales.Id</th>
+                        <td>@sales.SaleIdentifier</td>
+                        <td>@sales.Date</td>
+                        <td>@sales.Hour</td>
+                        <td>@sales.Client</td>
+                        <td>@sales.ProductsSold</td>
+                        <td>@sales.Observations</td>
+                        <td>@sales.FinalPrice</td>
+                        <td>@sales.OrderStatus</td>
+                        <td>@sales.Payment</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@sales.Id" asp-controller="Sales" asp-action="Edit">Edit</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@sales.Id" asp-controller="Sales" asp-action="DeleteConfirmation">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
         </tbody>
     </table>
 
