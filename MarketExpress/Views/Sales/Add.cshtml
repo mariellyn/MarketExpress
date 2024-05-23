@@ -1,48 +1,55 @@
-﻿<div class="text-center">
+﻿@model SalesModel
+
+@{
+    ViewData["Title"] = "Add sale";
+}
+
+<div class="text-center">
     <h1 class="display-4">Add Sale</h1>
 </div>
 
-<form>
+<form asp-controller="Sales" asp-action="Add" method="post">
+
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Sale identifier (ex: V2024/A/001)</span>
         </div>
-        <input type="text" class="form-control" placeholder="V2024/A/001">
+        <input type="text" asp-for="SaleIdentifier" class="form-control" placeholder="V2024/A/001">
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Date</span>
         </div>
-        <input type="date" class="form-control">
+        <input type="date" asp-for="Date" class="form-control">
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Time</span>
         </div>
-        <input type="time" class="form-control">
+        <input type="time" asp-for="Hour" class="form-control">
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Client</span>
         </div>
-        <input type="text" class="form-control">
+        <input type="text" asp-for="Client" class="form-control">
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Products Sold</span>
         </div>
-        <textarea class="form-control"></textarea>
+        <textarea asp-for="ProductsSold" class="form-control"></textarea>
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Observations</span>
         </div>
-        <textarea class="form-control"></textarea>
+        <textarea asp-for="Observations" class="form-control"></textarea>
     </div>
 
     <div class="input-group mb-3">
@@ -50,37 +57,40 @@
             <span class="input-group-text">Final Price</span>
         </div>
         <div class="input-group-prepend">
-            <span class="input-group-text">$</span>
+            <span class="input-group-text">&euro;</span>
         </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <input type="number" asp-for="FinalPrice" class="form-control" aria-label="Amount (to the nearest euro)" step="0.01" placeholder="0.00" pattern="^\d+(\.\d{1,2})?$">
         <div class="input-group-append">
             <span class="input-group-text">.00</span>
         </div>
     </div>
 
+
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="saleStatus">State</label>
+            <label asp-for="OrderStatus" class="input-group-text" for="saleStatus">State</label>
         </div>
         <select class="custom-select" id="saleStatus">
             <option selected>Choose...</option>
-            <option value="1">Encomendada</option>
-            <option value="2">Em processamento</option>
-            <option value="3">Processada</option>
-            <option value="4">Enviada</option>
+            <option value="Commissioned">Commissioned</option>
+            <option value="Processing">Processing</option>
+            <option value="Processed">Processed</option>
+            <option value="Sent">Sent</option>
         </select>
     </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="paidStatus">Paid</label>
+            <label asp-for="Payment" class="input-group-text" for="paidStatus">Paid</label>
         </div>
-        <select class="custom-select" id="paidStatus">
+        <select class="custom-select" id="paidStatus" asp-for="Payment" name="Payment">
             <option selected>Choose...</option>
-            <option value="1">Yes</option>
-            <option value="2">No</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
         </select>
     </div>
 
+    <button type="submit" class="btn btn-primary btn-block">Add</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Sales" asp-action="Index" role="button">Back</a>
 
 </form>
