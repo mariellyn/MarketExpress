@@ -10,15 +10,15 @@ namespace MarketExpress.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Write the customer's name")]
+        [Required(ErrorMessage = "Enter customer's name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Write email")]
+        [Required(ErrorMessage = "Enter email")]
         [EmailAddress(ErrorMessage = "The email is not valid !")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Write Phone")]
-        [Phone(ErrorMessage = "The email is not valid !")]
+        [Required(ErrorMessage = "Enter Phone")]
+        [Phone(ErrorMessage = "The phone is not valid !")]
         public string Phone { get; set; }
 
         public string BirthDate { get; set; }
@@ -30,11 +30,11 @@ namespace MarketExpress.Models
 
         public string PostalCode { get; set; }
 
-        [Required(ErrorMessage = "Write NIF")]
+        [Required(ErrorMessage = "Enter NIF")]
        
         public string NIF { get; set; }
 
-        [Required(ErrorMessage = "Write customer number ")]
+        [Required(ErrorMessage = "Enter customer number ")]
         public string CustumerNumber { get; set; }
 
 

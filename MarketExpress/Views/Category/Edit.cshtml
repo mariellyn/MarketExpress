@@ -16,11 +16,14 @@
         <label for="categoryName">Name</label>
         <input type="text" asp-for="Name" class="form-control" id="categoryName" placeholder="Name Category" required>
     </div>
+    @Html.ValidationMessageFor(x => x.Name)
+
 
     <div class="form-group">
         <label for="categoryDescription">Description</label>
         <textarea asp-for="Description" class="form-control" id="categoryDescription" rows="3" placeholder="Description Category"></textarea>
     </div>
+    @Html.ValidationMessageFor(x => x.Description)
 
     <button type="submit" class="btn btn-primary btn-block">Edit</button>
     <a class="btn btn-secondary btn-block" asp-controller="Category" asp-action="Index" role="button">Back</a>

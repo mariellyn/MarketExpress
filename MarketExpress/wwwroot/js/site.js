@@ -6,8 +6,19 @@
 
 
 $(document).ready(function () {
-    $('#table-client').DataTable();
+   
+    getDataTable('#table-padrao');
+    getDataTable('#table-user');
 });
+
+function getDataTable(id)
+
+{
+    $(document).ready(function () {
+        $(id).DataTable();
+    });
+
+}
 
 $('.close-alert').click(function () {
     $('.alert').hide('hide');

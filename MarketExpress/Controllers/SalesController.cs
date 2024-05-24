@@ -46,8 +46,31 @@ namespace MarketExpress.Controllers
 
         public IActionResult Delete(int id)
         {
-            _salesRepository.Delete(id);
-            return RedirectToAction("Index");
+            try
+
+            {
+                bool delete = _salesRepository.Delete(id);
+
+                if (delete)
+                {
+                    TempData["MessageSucess"] = "Successfully delete .";
+
+                }
+
+                else
+                {
+
+                    TempData["MessageError"] = "Oops, please try again.";
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, please try again.  Error Detail : {error.Message} ";
+                return RedirectToAction("Index");
+            }
 
         }
 
@@ -56,8 +79,23 @@ namespace MarketExpress.Controllers
         public IActionResult Add(SalesModel sales)
 
         {
-            _salesRepository.Add(sales);
-            return RedirectToAction("Index");
+            try
+
+            {
+                if (ModelState.IsValid)
+                {
+                    _salesRepository.Add(sales);
+                    TempData["MessageSucess"] = "Successfully registered .";
+                    return RedirectToAction("Index");
+                }
+                return View(sales);
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                return RedirectToAction("Index");
+            }
 
         }
 
@@ -65,8 +103,25 @@ namespace MarketExpress.Controllers
         public IActionResult Edit(SalesModel sales)
 
         {
-            _salesRepository.Update(sales);
-            return RedirectToAction("Index");
+            try
+
+            {
+                if (ModelState.IsValid)
+                {
+                    _salesRepository.Update(sales);
+                    TempData["MessageSucess"] = "Changed Successfully";
+                    return RedirectToAction("Index");
+                }
+
+                return View("Edit", sales);
+
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                return RedirectToAction("Index");
+            }
 
         }
     }

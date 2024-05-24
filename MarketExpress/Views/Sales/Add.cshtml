@@ -16,6 +16,7 @@
         </div>
         <input type="text" asp-for="SaleIdentifier" class="form-control" placeholder="V2024/A/001">
     </div>
+    @Html.ValidationMessageFor(x => x.SaleIdentifier)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -23,6 +24,7 @@
         </div>
         <input type="date" asp-for="Date" class="form-control">
     </div>
+    @Html.ValidationMessageFor(x => x.Date)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -30,6 +32,7 @@
         </div>
         <input type="time" asp-for="Hour" class="form-control">
     </div>
+    @Html.ValidationMessageFor(x => x.Hour)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -37,6 +40,7 @@
         </div>
         <input type="text" asp-for="Client" class="form-control">
     </div>
+    @Html.ValidationMessageFor(x => x.Client)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -44,6 +48,7 @@
         </div>
         <textarea asp-for="ProductsSold" class="form-control"></textarea>
     </div>
+    @Html.ValidationMessageFor(x => x.ProductsSold)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -51,6 +56,7 @@
         </div>
         <textarea asp-for="Observations" class="form-control"></textarea>
     </div>
+    @Html.ValidationMessageFor(x => x.Observations)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -64,6 +70,7 @@
             <span class="input-group-text">.00</span>
         </div>
     </div>
+    @Html.ValidationMessageFor(x => x.FinalPrice)
 
 
     <div class="input-group mb-3">
@@ -79,6 +86,7 @@
         </select>
     </div>
 
+
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <label asp-for="Payment" class="input-group-text" for="paidStatus">Paid</label>
@@ -88,6 +96,7 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
+        
     </div>
 
     <button type="submit" class="btn btn-primary btn-block">Add</button>

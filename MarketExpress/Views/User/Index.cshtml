@@ -1,0 +1,87 @@
+﻿@using MarketExpress.Enums
+@model List<UserModel>
+@{
+    ViewData["Title"] = "List Users";
+}
+<div class="text-center">
+
+    <div class="gap2 d-md-flex justify-content-md-end">
+        <a class="btn btn-success role-"Button" asp-controller="User" asp-action="Add">Add New User</a>
+    </div>
+
+    <br />
+    <br />
+
+    @if (TempData["MessageSucess"] != null)
+    {
+            <div class="alert alert-success" role="alert">
+             <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+             @TempData["MessageSucess"]
+    </div>
+
+    }
+
+    @if (TempData["MessageError"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+            @TempData["MessageError"]
+        </div>
+
+    }
+
+    <br />
+
+    <h1 class="display-4"> List User </h1>
+    <br />
+    <table class="table" id="table-user">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Login</th>
+                <th scope="col">Email</th>
+                <th scope="col">Profile</th>
+                <th scope="col">Registration Date</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+           @if (Model != null && Model.Any())
+            {
+                foreach(UserModel user in Model)
+                {
+                    <tr>
+                        <th scope="row">@user.Id</th>
+                        <td>@user.Name</td>
+                        <td>@user.Login</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @{
+                                var profileName = user.Profile == ProfileEnum.Admin
+                                ? "Admin"
+                                : user.Profile == ProfileEnum.Logistic
+                                ? "Logistic"
+                                : "Sales";
+                            }
+                            @profileName
+                        </td>
+                        <td>@user.DateRegistration</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@user.Id" asp-controller="user" asp-action="Edit">Edit</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@user.Id" asp-controller="user" asp-action="DeleteConfirmation">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+            }
+            else
+            {
+                <tr class=" odd"><td valign="top" colspan="5">No users found</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+

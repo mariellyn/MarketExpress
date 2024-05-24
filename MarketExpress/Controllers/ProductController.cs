@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MarketExpress.Controllers
 {
 
-    
+
     public class ProductController : Controller
     {
 
@@ -39,13 +39,36 @@ namespace MarketExpress.Controllers
         public IActionResult DeleteConfirmation(int id)
         {
             ProductModel product = _productRepository.ListIdProduct(id);
-            return View(product;
+            return View(product);
         }
 
         public IActionResult Delete(int id)
         {
-            _productRepository.Delete(id);
-            return RedirectToAction("Index");
+            try
+
+            {
+                bool delete = _productRepository.Delete(id);
+
+                if (delete)
+                {
+                    TempData["MessageSucess"] = "Successfully delete .";
+
+                }
+
+                else
+                {
+
+                    TempData["MessageError"] = "Oops, please try again.";
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, please try again.  Error Detail : {error.Message} ";
+                return RedirectToAction("Index");
+            }
 
         }
 
@@ -53,9 +76,23 @@ namespace MarketExpress.Controllers
         public IActionResult Add(ProductModel product)
 
         {
-            
-            _productRepository.Add(product);
-            return RedirectToAction("Index");
+            try
+
+            {
+                if (ModelState.IsValid)
+                {
+                    _productRepository.Add(product);
+                    TempData["MessageSucess"] = "Successfully registered .";
+                    return RedirectToAction("Index");
+                }
+                return View(product);
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
 
@@ -63,9 +100,26 @@ namespace MarketExpress.Controllers
         public IActionResult Edit(ProductModel product)
 
         {
+            try
 
-            _productRepository.Update(product);
-            return RedirectToAction("Index");
+            {
+                if (ModelState.IsValid)
+                {
+                    _productRepository.Update(product);
+                    TempData["MessageSucess"] = "Changed Successfully";
+                    return RedirectToAction("Index");
+                }
+
+                return View("Edit", product);
+
+            }
+
+            catch (System.Exception error)
+            {
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                return RedirectToAction("Index");
+
+            }
         }
     }
 }

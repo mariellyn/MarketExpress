@@ -33,6 +33,7 @@ namespace MarketExpress
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISalesRepository, SalesRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
 
         }

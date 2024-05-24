@@ -17,6 +17,8 @@ namespace MarketExpress.Data
         public DbSet<CategoryModel> Category { get; set; }
         public DbSet<ProductModel> Product { get; set; }
         public DbSet<SalesModel> Sales { get; set; }
+        
+        public DbSet<UserModel> Users { get; set; }
 
     }
 }
