@@ -34,6 +34,11 @@ namespace MarketExpress.Models
 
         public DateTime? DateChanged { get; set; }
 
+        public bool PasswordValid(string password)
+        {
+            return PasswordProfile == password;
+        }
+
 
     }
 }

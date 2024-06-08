@@ -1,10 +1,13 @@
-﻿using MarketExpress.Models;
+﻿using MarketExpress.Filters;
+using MarketExpress.Models;
 using MarketExpress.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace MarketExpress.Controllers
 {
+
+    [PageLoggedAdmin]
     public class UserController : Controller
     {
 

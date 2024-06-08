@@ -10,6 +10,8 @@ namespace MarketExpress.Repository
 {
     public interface IUserRepository
     {
+
+        UserModel SearchLogin(string login);
         List<UserModel> UserAll();
         UserModel ListIdUser(int id);
         

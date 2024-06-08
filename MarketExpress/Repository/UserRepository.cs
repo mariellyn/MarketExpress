@@ -15,6 +15,11 @@ namespace MarketExpress.Repository
             this._bancoContext = bancoContext;
         }
 
+        public UserModel SearchLogin(string login)
+        {
+            return _bancoContext.Users.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         public UserModel ListIdUser(int id)
         {
             return _bancoContext.Users.FirstOrDefault(x => x.Id == id);

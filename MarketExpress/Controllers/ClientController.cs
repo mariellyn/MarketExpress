@@ -1,4 +1,5 @@
-﻿using MarketExpress.Models;
+﻿using MarketExpress.Filters;
+using MarketExpress.Models;
 using MarketExpress.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Net.Sockets;
 
 namespace MarketExpress.Controllers
 {
+    [PageUserLogged]
     public class ClientController : Controller
     {
         private readonly IClientRepository _clientRepository;

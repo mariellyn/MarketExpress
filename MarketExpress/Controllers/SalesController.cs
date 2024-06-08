@@ -1,11 +1,12 @@
-﻿using MarketExpress.Models;
+﻿using MarketExpress.Filters;
+using MarketExpress.Models;
 using MarketExpress.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace MarketExpress.Controllers
 {
-
+    [PageUserLogged]
     public class SalesController : Controller
     {
         private readonly ISalesRepository _salesRepository;
