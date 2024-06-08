@@ -38,18 +38,6 @@ namespace MarketExpress.Controllers
             return View(category);
         }
 
-        public IActionResult Edit(int id)
-        {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
-        }
-
-        public IActionResult DeleteConfirmation(int id)
-        {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
-        }
-
         public IActionResult Delete(int id)
         {
             try

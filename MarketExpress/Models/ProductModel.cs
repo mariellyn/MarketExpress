@@ -17,7 +17,7 @@ namespace MarketExpress.Models
         public string QuantityStock { get; set; }
 
         
-        public string Weigth { get; set; }
+        public string Weight { get; set; }
 
         [Required(ErrorMessage = "Enter category product")]
         public string Category { get; set; }
