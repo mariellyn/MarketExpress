@@ -1,7 +1,6 @@
 ﻿using MarketExpress.Models;
 using MarketExpress.Repository;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 
 namespace MarketExpress.Controllers
@@ -48,67 +47,82 @@ namespace MarketExpress.Controllers
         public IActionResult Delete(int id)
         {
             try
+
             {
                 bool delete = _salesRepository.Delete(id);
 
                 if (delete)
                 {
-                    TempData["MessageSucess"] = "Sale deleted successfully.";
+                    TempData["MessageSucess"] = "Successfully delete .";
+
                 }
+
                 else
                 {
+
                     TempData["MessageError"] = "Oops, please try again.";
                 }
 
                 return RedirectToAction("Index");
             }
-            catch (Exception error)
+
+            catch (System.Exception error)
             {
-                TempData["MessageError"] = $"Oops, an error occurred while deleting the sale. Error Detail: {error.Message}";
+                TempData["MessageError"] = $"Oops, please try again.  Error Detail : {error.Message} ";
                 return RedirectToAction("Index");
             }
+
         }
 
 
         [HttpPost]
-        public IActionResult Add(SalesModel sale)
+        public IActionResult Add(SalesModel sales)
+
         {
             try
+
             {
                 if (ModelState.IsValid)
                 {
-                    _salesRepository.Add(sale);
-                    TempData["MessageSucess"] = "Sale registered successfully.";
+                    _salesRepository.Add(sales);
+                    TempData["MessageSucess"] = "Successfully registered .";
                     return RedirectToAction("Index");
                 }
-                return View(sale);
+                return View(sales);
             }
-            catch (Exception error)
+
+            catch (System.Exception error)
             {
-                TempData["MessageError"] = $"Oops, an error occurred while registering the sale. Error Detail: {error.Message}";
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
                 return RedirectToAction("Index");
             }
+
         }
 
         [HttpPost]
-        public IActionResult Edit(SalesModel sale)
+        public IActionResult Edit(SalesModel sales)
+
         {
             try
+
             {
                 if (ModelState.IsValid)
                 {
-                    _salesRepository.Update(sale);
-                    TempData["MessageSucess"] = "Sale updated successfully";
+                    _salesRepository.Update(sales);
+                    TempData["MessageSucess"] = "Changed Successfully";
                     return RedirectToAction("Index");
                 }
 
-                return View("Edit", sale);
+                return View("Edit", sales);
+
             }
-            catch (Exception error)
+
+            catch (System.Exception error)
             {
-                TempData["MessageError"] = $"Error updating sale: {error.Message}";
+                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
                 return RedirectToAction("Index");
             }
+
         }
 
     }

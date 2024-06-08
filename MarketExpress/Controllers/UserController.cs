@@ -5,21 +5,24 @@ using System.Collections.Generic;
 
 namespace MarketExpress.Controllers
 {
-    public class CategoryController : Controller
+    public class UserController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
-        public CategoryController(ICategoryRepository categoryRepository) 
-        
+
+        private readonly IUserRepository _userRepository;
+        public UserController(IUserRepository userRepository)
+
         {
-        
-            _categoryRepository = categoryRepository;
+            _userRepository = userRepository;
+
         }
         public IActionResult Index()
         {
-            List<CategoryModel> category = _categoryRepository.CategoriesAll();
-            
-            return View(category);
+            List<UserModel> user = _userRepository.UserAll();
+
+
+            return View(user);
         }
+
 
         public IActionResult Add()
         {
@@ -28,26 +31,15 @@ namespace MarketExpress.Controllers
 
         public IActionResult Edit(int id)
         {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
+
+            UserModel user = _userRepository.ListIdUser(id);
+            return View(user);
         }
 
         public IActionResult DeleteConfirmation(int id)
         {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
-        }
-
-        public IActionResult Edit(int id)
-        {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
-        }
-
-        public IActionResult DeleteConfirmation(int id)
-        {
-            CategoryModel category = _categoryRepository.ListIdCategory(id);
-            return View(category);
+            UserModel user = _userRepository.ListIdUser(id);
+            return View(user);
         }
 
         public IActionResult Delete(int id)
@@ -55,7 +47,7 @@ namespace MarketExpress.Controllers
             try
 
             {
-                bool delete = _categoryRepository.Delete(id);
+                bool delete = _userRepository.Delete(id);
 
                 if (delete)
                 {
@@ -80,56 +72,70 @@ namespace MarketExpress.Controllers
 
         }
 
+
+
+
         [HttpPost]
-        public IActionResult Add(CategoryModel category) 
-        
+        public IActionResult Add(UserModel user)
         {
             try
 
             {
                 if (ModelState.IsValid)
                 {
-                    _categoryRepository.Add(category);
-                    TempData["MessageSucess"] = "Successfully registered .";
+                    _userRepository.Add(user);
+                    TempData["MessageSucess"] = "Successfully registered user.";
                     return RedirectToAction("Index");
                 }
-                return View(category);
+                return View(user);
             }
 
             catch (System.Exception error)
             {
-                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                TempData["MessageError"] = $"Oops, unregistered user, please try again, Error Detail : {error.Message}";
                 return RedirectToAction("Index");
             }
 
         }
 
         [HttpPost]
-        public IActionResult Edit(CategoryModel category)
-
+        public IActionResult Edit(UserPasswordModel userPasswordModel)
         {
+
             try
 
             {
+                UserModel user = null;
                 if (ModelState.IsValid)
                 {
-                    _categoryRepository.Update(category);
+                    user = new UserModel()
+                    {
+
+                        Id = userPasswordModel.Id,
+                        Name = userPasswordModel.Name,
+                        Login = userPasswordModel.Login,
+                        Email = userPasswordModel.Email,
+                        Profile = userPasswordModel.Profile
+
+
+                    };
+
+                    user = _userRepository.Update(user);
                     TempData["MessageSucess"] = "Changed Successfully";
                     return RedirectToAction("Index");
                 }
 
-                return View("Edit", category);
+                return View("Edit", user);
 
             }
 
             catch (System.Exception error)
             {
-                TempData["MessageError"] = $"Oops, unregistered customer, please try again, Error Detail : {error.Message}";
+                TempData["MessageError"] = $"Oops, unregistered user, please try again, Error Detail : {error.Message}";
                 return RedirectToAction("Index");
             }
 
 
         }
-
     }
 }

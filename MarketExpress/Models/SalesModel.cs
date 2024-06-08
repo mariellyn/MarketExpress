@@ -7,28 +7,28 @@ namespace MarketExpress.Models
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "The sale identifier is required.")]
+        [Required(ErrorMessage = "Enter identifier sale")]
         public string SaleIdentifier { get; set; }
 
-        [Required(ErrorMessage = "The sale date is required.")]
+        [Required(ErrorMessage = "Enter date sale")]
         public string Date { get; set; }
 
-        [Required(ErrorMessage = "The sale hour is required.")]
+        [Required(ErrorMessage = "Enter hour sale")]
         public string Hour { get; set; }
 
-        [Required(ErrorMessage = "The client is required.")]
+        [Required(ErrorMessage = "Enter client sale")]
         public string Client { get; set; }
 
-        [Required(ErrorMessage = "The products sold are required.")]
+        [Required(ErrorMessage = "Enter product sold sale")]
         public string ProductsSold { get; set; }
 
-        [Required(ErrorMessage = "The observations are required.")]
+        [Required(ErrorMessage = "Enter observations sale")]
         public string Observations { get; set; }
 
-        [Required(ErrorMessage = "The final price is required.")]
+        [Required(ErrorMessage = "Enter final price sale")]
         public string FinalPrice { get; set; }
 
-        [Required(ErrorMessage = "The order status is required.")]
+       
         public string OrderStatus { get; set; }
 
         [Required(ErrorMessage = "The payment status is required.")]

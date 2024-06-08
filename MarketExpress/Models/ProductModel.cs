@@ -6,19 +6,20 @@ namespace MarketExpress.Models
     {
 
         public int Id { get; set; }
-        [Required(ErrorMessage = "The product description is required.")]
+
+        [Required(ErrorMessage = "Enter description product")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "The product price is required.")]
+        [Required(ErrorMessage = "Enter price product")]
         public string Price { get; set; }
 
-        [Required(ErrorMessage = "The product quantity in stock is required.")]
+        [Required(ErrorMessage = "Enter quantity stock product")]
         public string QuantityStock { get; set; }
 
-        [Required(ErrorMessage = "The product weight is required.")]
-        public string Weight { get; set; }
+        
+        public string Weigth { get; set; }
 
-        [Required(ErrorMessage = "The product category is required.")]
+        [Required(ErrorMessage = "Enter category product")]
         public string Category { get; set; }
 
     }

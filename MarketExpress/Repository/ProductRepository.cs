@@ -44,7 +44,7 @@ namespace MarketExpress.Repository
             productDB.Description = product.Description;
             productDB.Price = product.Price;
             productDB.QuantityStock = product.QuantityStock;
-            productDB.Weight = product.Weight;
+            productDB.Weigth = product.Weigth;
             productDB.Category = product.Category;
 
             _bancoContext.Product.Update(productDB);

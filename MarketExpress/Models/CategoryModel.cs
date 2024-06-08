@@ -10,11 +10,10 @@ namespace MarketExpress.Models
     {
         public int Id { get; set; }
 
-
-        [Required(ErrorMessage = "The category name is required.")]
+        [Required(ErrorMessage = "Enter name category")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "The category description is required.")]
-        public string Description { get; set; }
+        [Required(ErrorMessage = "Enter description category")]
+        public string Description { get; set; } 
     }
 }

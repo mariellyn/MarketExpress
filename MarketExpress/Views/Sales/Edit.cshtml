@@ -1,7 +1,7 @@
 ﻿@model SalesModel
 
 @{
-    ViewData["Title"] = "Edit Sale";
+    ViewData["Title"] = "Edit sale";
 }
 
 <div class="text-center">
@@ -17,48 +17,48 @@
             <span class="input-group-text">Sale identifier (ex: V2024/A/001)</span>
         </div>
         <input type="text" asp-for="SaleIdentifier" class="form-control" placeholder="V2024/A/001">
-        @Html.ValidationMessageFor(x => x.SaleIdentifier)
     </div>
+    @Html.ValidationMessageFor(x => x.SaleIdentifier)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Date</span>
         </div>
         <input type="date" asp-for="Date" class="form-control">
-        @Html.ValidationMessageFor(x => x.Date)
     </div>
+    @Html.ValidationMessageFor(x => x.Date)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Time</span>
         </div>
         <input type="time" asp-for="Hour" class="form-control">
-        @Html.ValidationMessageFor(x => x.Hour)
     </div>
+    @Html.ValidationMessageFor(x => x.Hour)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Client</span>
         </div>
         <input type="text" asp-for="Client" class="form-control">
-        @Html.ValidationMessageFor(x => x.Client)
     </div>
+    @Html.ValidationMessageFor(x => x.Client)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Products Sold</span>
         </div>
         <textarea asp-for="ProductsSold" class="form-control"></textarea>
-        @Html.ValidationMessageFor(x => x.ProductsSold)
     </div>
+    @Html.ValidationMessageFor(x => x.ProductsSold)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Observations</span>
         </div>
         <textarea asp-for="Observations" class="form-control"></textarea>
-        @Html.ValidationMessageFor(x => x.Observations)
     </div>
+    @Html.ValidationMessageFor(x => x.Observations)
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -71,8 +71,8 @@
         <div class="input-group-append">
             <span class="input-group-text">.00</span>
         </div>
-        @Html.ValidationMessageFor(x => x.FinalPrice)
     </div>
+    @Html.ValidationMessageFor(x => x.FinalPrice)
 
 
     <div class="input-group mb-3">
@@ -86,7 +86,6 @@
             <option value="Processed">Processed</option>
             <option value="Sent">Sent</option>
         </select>
-        @Html.ValidationMessageFor(x => x.OrderStatus)
     </div>
 
 
@@ -100,7 +99,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-        @Html.ValidationMessageFor(x => x.Payment)
     </div>
 
     <button type="submit" class="btn btn-primary btn-block">Edit</button>
