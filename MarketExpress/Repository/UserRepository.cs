@@ -31,6 +31,7 @@ namespace MarketExpress.Repository
         public UserModel Add(UserModel Users)
         {
             Users.DateRegistration = DateTime.Now;
+            Users.SetPasswordHash();
             _bancoContext.Users.Add(Users);
             _bancoContext.SaveChanges();
             return Users;

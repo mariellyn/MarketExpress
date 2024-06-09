@@ -1,4 +1,5 @@
 ﻿using MarketExpress.Enums;
+using MarketExpress.Helper;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -36,9 +37,12 @@ namespace MarketExpress.Models
 
         public bool PasswordValid(string password)
         {
-            return PasswordProfile == password;
+            return PasswordProfile == password.GenerateHash();
         }
 
-
+        public void SetPasswordHash()
+        {
+            PasswordProfile = PasswordProfile.GenerateHash();
+        }
     }
 }
