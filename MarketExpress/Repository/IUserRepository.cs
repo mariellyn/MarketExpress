@@ -12,6 +12,7 @@ namespace MarketExpress.Repository
     {
 
         UserModel SearchLogin(string login);
+        UserModel SearchEmailLogin(string email , string login);
         List<UserModel> UserAll();
         UserModel ListIdUser(int id);
         

@@ -43,6 +43,7 @@ namespace MarketExpress
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISection, Section>();
+            services.AddScoped<IEmail, Email>();
 
             services.AddSession(o =>
             {

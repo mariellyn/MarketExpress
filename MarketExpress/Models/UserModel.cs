@@ -44,5 +44,12 @@ namespace MarketExpress.Models
         {
             PasswordProfile = PasswordProfile.GenerateHash();
         }
+
+        public string GenerateNewPassword()
+        {
+            string newPassword = Guid.NewGuid().ToString().Substring(0, 8);
+            PasswordProfile = newPassword.GenerateHash();
+            return newPassword;
+        }
     }
 }
