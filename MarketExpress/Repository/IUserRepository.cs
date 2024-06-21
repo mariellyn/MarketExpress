@@ -20,6 +20,8 @@ namespace MarketExpress.Repository
 
         UserModel Update(UserModel user);
 
+        UserModel ChangePassword(ChangePasswordModel changePasswordModel);
+ 
         bool Delete(int id);
     }
 }

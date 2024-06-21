@@ -80,26 +80,26 @@ namespace MarketExpress.Controllers
 
                         string newPassword = user.GenerateNewPassword();
                         
-                        string message1 = $" Your new password : {newPassword}";
+                        string message = $" Your new password : {newPassword}";
 
-                        bool emailSend = _email.Send(user.Email, "Contacts System - New Password", message1);
+                        bool emailSend = _email.Send(user.Email, "Contacts System - New Password", message);
 
                         if (emailSend)
                         {
 
                             _userRepository.Update(user);
-                            TempData["MessageSucess"] = " We've sent you a new password. ";
+                            TempData["MessageSucess"] = $" We've sent you a new password. ";
                         }
                         else
                         {
-                            TempData["MessageError"] = " We can't send your password.Please try again. ";
+                            TempData["MessageError"] = $" We can't send your password.Please try again. ";
                         }
 
                         
                         return RedirectToAction("Index", "Login");
                     }
 
-                    TempData["MessageError"] = " We can't reset your password.Please check the information provided and try again. ";
+                    TempData["MessageError"] = $" We can't reset your password.Please check the information provided and try again. ";
                 }
                 return View("Index");
             }

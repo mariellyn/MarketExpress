@@ -59,6 +59,26 @@ namespace MarketExpress.Repository
             return UsersDB;
         }
 
+        public UserModel ChangePassword(ChangePasswordModel changePasswordModel)
+        {
+            UserModel userDB = ListIdUser(changePasswordModel.Id);
+
+            if (userDB == null) throw new Exception("An error occurred while updating the password, User Not Found");
+
+            if (!userDB.PasswordValid(changePasswordModel.CurrentPassword)) throw new Exception("Current password does not match");
+
+            if (userDB.PasswordValid(changePasswordModel.NewPassword)) throw new Exception("New password must be different from the current password.");
+
+            userDB.SetNewPassword(changePasswordModel.NewPassword); 
+            userDB.DateChanged = DateTime.Now; 
+
+            _bancoContext.Users.Update(userDB);
+            _bancoContext.SaveChanges();
+
+            return userDB;
+        }
+
+
         public bool Delete(int id)
         {
             UserModel UsersDB = ListIdUser(id);
