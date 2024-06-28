@@ -1,0 +1,48 @@
+﻿@model List<SalesModel>
+
+@{
+    ViewData["Title"] = "Ordered Sales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ordered Sales</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sale Identifier</th>
+                <th>Date</th>
+                <th>Client</th>
+                <th>Products Sold</th>
+                <th>Observations</th>
+                <th>Final Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sale in Model)
+            {
+                <tr>
+                    <td>@sale.SaleIdentifier</td>
+                    <td>@sale.Date</td>
+                    <td>@sale.Client</td>
+                    <td>@sale.ProductsSold</td>
+                    <td>@sale.Observations</td>
+                    <td>@sale.FinalPrice</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@sale.Id">Edit</a> |
+                        <a asp-action="DeleteConfirmation" asp-route-id="@sale.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No ordered sales found.</p>
+}
+
+<a asp-action="Index">Back to Sales List</a>

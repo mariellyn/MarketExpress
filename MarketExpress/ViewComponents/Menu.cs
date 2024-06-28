@@ -6,22 +6,28 @@ using System.Threading.Tasks;
 
 namespace MarketExpress.ViewComponents
 {
-    public class Menu : ViewComponent
+    public class MenuViewComponent : ViewComponent
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public MenuViewComponent(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            var sectionUser = _httpContextAccessor.HttpContext.Session.GetString("sectionUserLogged");
 
-            string sectionUser = HttpContext.Session.GetString("sectionUserLogged");
+            if (string.IsNullOrEmpty(sectionUser))
+            {
+                // Se não houver usuário logado, você pode retornar um componente ou uma mensagem indicando isso.
+                // Neste caso, vamos retornar uma ViewComponentResult vazia para não renderizar nada no menu.
+                return Content("Usuário não está logado");
+            }
 
-
-            if (string.IsNullOrEmpty(sectionUser)) return null;
-           
-            UserModel user = JsonConvert.DeserializeObject<UserModel>(sectionUser);
-
+            var user = JsonConvert.DeserializeObject<UserModel>(sectionUser);
             return View(user);
         }
-          
-
     }
 }

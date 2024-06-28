@@ -1,13 +1,12 @@
 ﻿@model CategoryModel
 
 @{
-    ViewData["Title"] = "Confirmation delete category";
+    ViewData["Title"] = Localizer["DeleteCategoryTitle"];
 }
 
-
 <div class="text-center">
-    <h3>Really want to delete the category? (@Model.Name)</h3>
+    <h3>@Localizer["DeleteCategoryConfirm"] (@Model.Name)</h3>
 </div>
 
-<a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Category" role="button">Back</a>
-<a class="btn btn-danger btn-block" asp-action="Delete" asp-controller="Category" asp-route-id="@Model.Id" role="button">Confirm Deletion</a>
+<a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Category" role="button">@Localizer["Back"]</a>
+<a class="btn btn-danger btn-block" asp-action="Delete" asp-controller="Category" asp-route-id="@Model.Id" role="button">@Localizer["ConfirmDeletion"]</a>

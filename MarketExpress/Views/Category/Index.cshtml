@@ -1,12 +1,12 @@
 ﻿@model List<CategoryModel>
 
 @{
-    ViewData["Title"] = "Category";
+    ViewData["Title"] = Localizer["CategoryTitle"];
 }
 
 <div class="text-center">
     <div class="gap2 d-md-flex justify-content-md-end">
-        <a class="btn btn-success role-" button" asp-controller="Category" asp-action="Add">Add Category</a>
+        <a class="btn btn-success role-" button" asp-controller="Category" asp-action="Add">@Localizer["AddCategory"]</a>
     </div>
 
     <br />
@@ -15,36 +15,32 @@
     @if (TempData["MessageSucess"] != null)
     {
         <div class="alert alert-success" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
             @TempData["MessageSucess"]
         </div>
-
     }
 
     @if (TempData["MessageError"] != null)
     {
         <div class="alert alert-danger" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
             @TempData["MessageError"]
         </div>
-
     }
 
-
-    <h1 class="display-4"> List Category </h1>
+    <h1 class="display-4">@Localizer["ListCategory"]</h1>
     <br />
 
     <table class="table" id="table-padrao">
         <thead>
             <tr>
                 <th scope="col"></th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
+                <th scope="col">@Localizer["Name"]</th>
+                <th scope="col">@Localizer["Description"]</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-
             @if (Model != null && Model.Any())
             {
                 foreach (CategoryModel category in Model)
@@ -55,17 +51,13 @@
                         <td>@category.Description</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" class="btn btn-primary" asp-route-id="@category.Id" asp-controller="Category" asp-action="Edit">Edit</a>
-                                <a role="button" class="btn btn-danger" asp-route-id="@category.Id" asp-controller="Category" asp-action="DeleteConfirmation">Delete</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@category.Id" asp-controller="Category" asp-action="Edit">@Localizer["Edit"]</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@category.Id" asp-controller="Category" asp-action="DeleteConfirmation">@Localizer["Delete"]</a>
                             </div>
                         </td>
                     </tr>
-
                 }
-
             }
-
-
         </tbody>
     </table>
 </div>
