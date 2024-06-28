@@ -7,7 +7,7 @@ Este projeto visa desenvolver uma aplicação web para gerenciar as operações 
 - **Admin**: admin / senha: 12345
 - **Logística**: logistic / senha: 123456
 - **Venda**: sale / senha: 123456
-
+- 
 ## Funcionalidades Implementadas
 
 ### Área de Categorias
@@ -17,24 +17,23 @@ Este projeto visa desenvolver uma aplicação web para gerenciar as operações 
 
 ### Área de Produtos
 - [x] Listar os produtos.
-- [ ] Criar/Editar/Ver/Apagar um produto (em progresso).
+- [x] Criar/Editar/Ver/Apagar um produto.
 
 ### Área de Clientes
 - [x] Listar os clientes. Filtrar por nome e NIF.
-- [ ] Criar/Editar/Ver/Apagar um cliente (em progresso).
+- [x] Criar/Editar/Ver/Apagar um cliente .
 - [ ] Ver o histórico de vendas do cliente.
 - [ ] Ver o saldo corrente do cliente.
 
 ### Área de Vendas
-- [ ] Listar as vendas. Filtrar por cliente.
-- [ ] Criar/Editar/Ver/Apagar uma venda (em progresso).
+- [x] Listar as vendas. Filtrar por cliente.
+- [x] Criar/Editar/Ver/Apagar uma venda .
 - [ ] Implementação dos passos de uma venda (Encomendada, Em processamento, Processada, Enviada).
 - [ ] Implementar vistas específicas para diferentes estados de vendas.
 - [ ] Ver saldo corrente geral (somatório de vendas menos somatório de vendas pagas).
 
-## Internacionalização
-
-O site está sendo desenvolvido para suportar os idiomas português e inglês.
+### Internacionalização
+- [ ] O site está sendo desenvolvido para suportar os idiomas português e inglês (em progresso).
 
 ## Papéis
 
@@ -51,7 +50,8 @@ Existem três tipos de papéis implementados:
 
 - Implementar as funcionalidades restantes nas áreas de Produtos, Clientes e Vendas.
 - Refatorar e melhorar a interface do usuário.
-- Implementar internacionalização completa.
+- Concluir a implementação da internacionalização.
+- Testes finais e correções de bugs.
 
 
 
