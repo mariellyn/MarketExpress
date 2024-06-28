@@ -5,8 +5,8 @@ Este projeto visa desenvolver uma aplicação web para gerenciar as operações 
 ## Informações de Login (para ambiente de desenvolvimento)
 
 - **Admin**: admin / senha: 12345
-- **Logística**: logistic / senha: 123456
-- **Venda**: sale / senha: 123456
+- **Logística**: logistic / senha: 12345
+- **Venda**: sale / senha: 12345
 - 
 ## Funcionalidades Implementadas
 
