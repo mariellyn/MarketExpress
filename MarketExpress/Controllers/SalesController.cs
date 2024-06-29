@@ -24,6 +24,12 @@ namespace MarketExpress.Controllers
 
         }
 
+        public IActionResult Ordered()
+        {
+            List<SalesModel> orderedSales = _salesRepository.GetOrderedSales();
+            return View("Ordered", orderedSales);
+        }
+
         public IActionResult Add()
         {
             return View();

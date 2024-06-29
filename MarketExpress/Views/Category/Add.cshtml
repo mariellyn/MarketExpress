@@ -1,26 +1,26 @@
 ﻿@model CategoryModel
 @{
-    ViewData["Title"] = "Add Category";
+    ViewData["Title"] = Localizer["AddCategoryTitle"];
 }
 
 <div class="text-center">
-    <h1 class="display-4">Add Category</h1>
+    <h1 class="display-4">@Localizer["AddCategory"]</h1>
 </div>
 
 <form asp-controller="Category" asp-action="Add" method="post">
 
     <div class="form-group">
-        <label for="categoryName">Name</label>
-        <input type="text" asp-for="Name" class="form-control" id="categoryName" placeholder="Name Category" required>
+        <label for="categoryName">@Localizer["Name"]</label>
+        <input type="text" asp-for="Name" class="form-control" id="categoryName" placeholder="@Localizer["NameCategoryPlaceholder"]" required>
     </div>
     @Html.ValidationMessageFor(x => x.Name)
 
     <div class="form-group">
-        <label for="categoryDescription">Description</label>
-        <textarea asp-for="Description" class="form-control" id="categoryDescription" rows="3" placeholder="Description Category"></textarea>
+        <label for="categoryDescription">@Localizer["Description"]</label>
+        <textarea asp-for="Description" class="form-control" id="categoryDescription" rows="3" placeholder="@Localizer["DescriptionCategoryPlaceholder"]"></textarea>
     </div>
     @Html.ValidationMessageFor(x => x.Description)
 
-    <button type="submit" class="btn btn-primary btn-block">Add</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Category" asp-action="Index" role="button">Back</a>
+    <button type="submit" class="btn btn-primary btn-block">@Localizer["Add"]</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Category" asp-action="Index" role="button">@Localizer["Back"]</a>
 </form>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MarketExpress.Data;
 using MarketExpress.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace MarketExpress.Repository
@@ -68,5 +69,11 @@ namespace MarketExpress.Repository
             _bancoContext.SaveChanges(); 
             return true;
         }
+
+        public List<SalesModel> GetOrderedSales()
+        {
+            return _bancoContext.Sales.Where(s => s.OrderStatus == "Ordered").ToList();
+        }
+
     }
 }

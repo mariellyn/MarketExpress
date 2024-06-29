@@ -16,6 +16,8 @@ namespace MarketExpress.Repository
 
         SalesModel Update(SalesModel sales);
 
+        List<SalesModel> GetOrderedSales();
+
         bool Delete(int id);
     }
 }

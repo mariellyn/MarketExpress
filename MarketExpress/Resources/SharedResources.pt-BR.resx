@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Adicionar Categoria</value>
+    <comment>Texto para botão/adicionar nova categoria</comment>
+  </data>
+  <data name="AddCategoryTitle" xml:space="preserve">
+    <value>Adicionar Categoria</value>
+    <comment>Título da página de adição de categoria</comment>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Categoria</value>
+    <comment>Título da página de categoria</comment>
+  </data>
+  <data name="ConfirmDeletion" xml:space="preserve">
+    <value>Confirmar Exclusão</value>
+    <comment>Texto para botão/confirmar exclusão</comment>
+  </data>
+  <data name="DeleteCategoryConfirm" xml:space="preserve">
+    <value>Realmente deseja excluir a categoria? ({0})</value>
+    <comment>Mensagem de confirmação para exclusão de categoria (o {0} será substituído pelo nome da categoria)</comment>
+  </data>
+  <data name="DeleteCategoryTitle" xml:space="preserve">
+    <value>Confirmação de exclusão de categoria</value>
+    <comment>Título da página de confirmação de exclusão de categoria</comment>
+  </data>
+  <data name="EditCategory" xml:space="preserve">
+    <value>Editar</value>
+    <comment>Texto para botão/editar categoria</comment>
+  </data>
+  <data name="EditCategoryTitle" xml:space="preserve">
+    <value>Editar Categoria</value>
+    <comment>Título da página de edição de categoria</comment>
+  </data>
+  <data name="IndexCustomerSupportDesc" xml:space="preserve">
+    <value>Estamos aqui para ajudar você em cada passo do caminho.</value>
+    <comment>Descrição para a seção de suporte ao cliente</comment>
+  </data>
+  <data name="IndexCustomerSupportTitle" xml:space="preserve">
+    <value>Suporte ao Cliente</value>
+    <comment>Título para a seção de suporte ao cliente</comment>
+  </data>
+  <data name="IndexExploreProducts" xml:space="preserve">
+    <value>Explore Produtos</value>
+    <comment>Texto do botão para explorar produtos</comment>
+  </data>
+  <data name="IndexFastDeliveryDesc" xml:space="preserve">
+    <value>Receba seus pedidos em tempo recorde com nosso serviço de entrega expressa.</value>
+    <comment>Descrição para a seção de entrega rápida</comment>
+  </data>
+  <data name="IndexFastDeliveryTitle" xml:space="preserve">
+    <value>Entrega Rápida</value>
+    <comment>Título para a seção de entrega rápida</comment>
+  </data>
+  <data name="IndexHeroDescription" xml:space="preserve">
+    <value>Qualidade e conveniência em um só lugar.</value>
+    <comment>Descrição na seção hero da página inicial</comment>
+  </data>
+  <data name="IndexHeroSubTitle" xml:space="preserve">
+    <value>Sua loja online de confiança para todas as suas necessidades.</value>
+    <comment>Subtítulo na seção hero da página inicial</comment>
+  </data>
+  <data name="IndexQualityProductsDesc" xml:space="preserve">
+    <value>Selecionamos os melhores produtos para garantir sua satisfação.</value>
+    <comment>Descrição para a seção de produtos de qualidade</comment>
+  </data>
+  <data name="IndexQualityProductsTitle" xml:space="preserve">
+    <value>Produtos de Qualidade</value>
+    <comment>Título para a seção de produtos de qualidade</comment>
+  </data>
+  <data name="IndexWelcomeMessage" xml:space="preserve">
+    <value>Bem-vindo ao MarketExpress!</value>
+    <comment>Mensagem de boas-vindas na página inicial</comment>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Listar Categorias</value>
+    <comment>Título para listagem de categorias</comment>
+  </data>
+  <data name="PrivacyContact" xml:space="preserve">
+    <value>Contato</value>
+    <comment>Título para a seção de informações de contato</comment>
+  </data>
+  <data name="PrivacyContactAddress" xml:space="preserve">
+    <value>Endereço: Rua Exemplo, 123, Cidade, Estado, CEP</value>
+    <comment>Endereço físico para contato</comment>
+  </data>
+  <data name="PrivacyContactDesc" xml:space="preserve">
+    <value>Se você tiver alguma dúvida ou preocupação sobre esta Política de Privacidade, entre em contato conosco:</value>
+    <comment>Descrição inicial sobre como entrar em contato</comment>
+  </data>
+  <data name="PrivacyContactEmail" xml:space="preserve">
+    <value>E-mail: suporte@marketexpress.com</value>
+    <comment>Endereço de e-mail para contato</comment>
+  </data>
+  <data name="PrivacyCookies" xml:space="preserve">
+    <value>Cookies: Utilizamos cookies para melhorar sua experiência de navegação, armazenar suas preferências e fornecer conteúdo relevante. Você pode desativar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site.</value>
+    <comment>Descrição do uso de cookies</comment>
+  </data>
+  <data name="PrivacyEffectiveDate" xml:space="preserve">
+    <value>Data de Vigência</value>
+    <comment>Título para a seção de data de vigência</comment>
+  </data>
+  <data name="PrivacyEffectiveDateDesc" xml:space="preserve">
+    <value>Esta Política de Privacidade é vigente a partir de [Data].</value>
+    <comment>Descrição sobre a data de vigência da política de privacidade</comment>
+  </data>
+  <data name="PrivacyHowWeUseInfo" xml:space="preserve">
+    <value>Como Usamos as Informações</value>
+    <comment>Título para a seção de como usamos as informações</comment>
+  </data>
+  <data name="PrivacyHowWeUseInfoDesc" xml:space="preserve">
+    <value>Usamos as informações que coletamos para:</value>
+    <comment>Descrição inicial de como usamos as informações</comment>
+  </data>
+  <data name="PrivacyInformationWeCollect" xml:space="preserve">
+    <value>Informações que Coletamos</value>
+    <comment>Título para a seção de informações que coletamos</comment>
+  </data>
+  <data name="PrivacyInfoSecurity" xml:space="preserve">
+    <value>Segurança das Informações</value>
+    <comment>Título para a seção de segurança das informações</comment>
+  </data>
+  <data name="PrivacyInfoSecurityDesc" xml:space="preserve">
+    <value>Implementamos uma variedade de medidas de segurança para manter a segurança de suas informações pessoais. Usamos tecnologia de criptografia para proteger dados sensíveis transmitidos online e mantemos seus dados offline em ambientes seguros.</value>
+    <comment>Descrição sobre como mantemos a segurança das informações pessoais</comment>
+  </data>
+  <data name="PrivacyInfoSharing" xml:space="preserve">
+    <value>Compartilhamento de Informações</value>
+    <comment>Título para a seção de compartilhamento de informações</comment>
+  </data>
+  <data name="PrivacyInfoSharingDesc" xml:space="preserve">
+    <value>Não vendemos, trocamos ou transferimos suas informações pessoais para terceiros, exceto para:</value>
+    <comment>Descrição inicial sobre compartilhamento de informações</comment>
+  </data>
+  <data name="PrivacyLegalRequirements" xml:space="preserve">
+    <value>Requisitos Legais: Quando acreditamos que a divulgação é necessária para cumprir a lei, proteger nossos direitos ou a segurança de outros.</value>
+    <comment>Descrição sobre compartilhamento para cumprir requisitos legais</comment>
+  </data>
+  <data name="PrivacyNavigationInformation" xml:space="preserve">
+    <value>Informações de Navegação: Coletamos informações sobre como você navega e interage com nosso site, como seu endereço IP, tipo de navegador, páginas visitadas e tempo gasto em nosso site.</value>
+    <comment>Descrição das informações de navegação que coletamos</comment>
+  </data>
+  <data name="PrivacyPersonalInformation" xml:space="preserve">
+    <value>Informações Pessoais: Podemos coletar informações pessoais que você nos fornece diretamente, como seu nome, endereço, e-mail, número de telefone e informações de pagamento.</value>
+    <comment>Descrição das informações pessoais que coletamos</comment>
+  </data>
+  <data name="PrivacyRightAccess" xml:space="preserve">
+    <value>Acessar: Solicitar uma cópia das informações pessoais que temos sobre você.</value>
+    <comment>Descrição sobre o direito de acesso</comment>
+  </data>
+  <data name="PrivacyRightCorrect" xml:space="preserve">
+    <value>Corrigir: Corrigir qualquer informação pessoal imprecisa ou incompleta.</value>
+    <comment>Descrição sobre o direito de correção</comment>
+  </data>
+  <data name="PrivacyRightDelete" xml:space="preserve">
+    <value>Excluir: Solicitar a exclusão de suas informações pessoais.</value>
+    <comment>Descrição sobre o direito de exclusão</comment>
+  </data>
+  <data name="PrivacyRightOptOut" xml:space="preserve">
+    <value>Opt-out: Cancelar a inscrição de comunicações promocionais.</value>
+    <comment>Descrição sobre o direito de opt-out</comment>
+  </data>
+  <data name="PrivacyRightPortability" xml:space="preserve">
+    <value>Portabilidade: Solicitar a transferência de suas informações pessoais para outra entidade.</value>
+    <comment>Descrição sobre o direito de portabilidade</comment>
+  </data>
+  <data name="PrivacyRightRestrict" xml:space="preserve">
+    <value>Restringir: Solicitar a restrição do processamento de suas informações pessoais.</value>
+    <comment>Descrição sobre o direito de restrição</comment>
+  </data>
+  <data name="PrivacyServiceProviders" xml:space="preserve">
+    <value>Prestadores de Serviço: Empresas que nos ajudam a operar nosso site, conduzir nossos negócios ou fornecer serviços a você, desde que essas partes concordem em manter essas informações confidenciais.</value>
+    <comment>Descrição sobre compartilhamento com prestadores de serviço</comment>
+  </data>
+  <data name="PrivacyTitle" xml:space="preserve">
+    <value>Política de Privacidade</value>
+    <comment>Título da página de política de privacidade</comment>
+  </data>
+  <data name="PrivacyWelcomeMessage" xml:space="preserve">
+    <value>Bem-vindo ao MarketExpress. Estamos comprometidos em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações pessoais quando você utiliza nosso site e serviços.</value>
+    <comment>Mensagem de boas-vindas na página de política de privacidade</comment>
+  </data>
+  <data name="PrivacyYourRights" xml:space="preserve">
+    <value>Seus Direitos</value>
+    <comment>Título para a seção de seus direitos</comment>
+  </data>
+  <data name="PrivacyYourRightsDesc" xml:space="preserve">
+    <value>Você tem o direito de:</value>
+    <comment>Descrição inicial dos direitos dos usuários</comment>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Bem-vindo ao MarketExpress!</value>
+  </data>
+</root>

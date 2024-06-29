@@ -1,24 +1,46 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MarketExpress</title>
+    <title>@Localizer["Title"] - MarketExpress</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.7/datatables.min.css" rel="stylesheet">
-
-    
-
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 @await Component.InvokeAsync("Menu")
+
+                <!-- Dropdown para seleção de idioma -->
+                <div class="dropdown ml-auto">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @Localizer["Language"]
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <form id="languageForm" method="post" asp-controller="Home" asp-action="SetCulture">
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+                            <button type="submit" name="culture" value="en-US" class="dropdown-item">English</button>
+                            <button type="submit" name="culture" value="pt-BR" class="dropdown-item">Português</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Link para Login -->
+                @if (!HttpContextAccessor.HttpContext.Session.Keys.Contains("sectionUserLogged"))
+                {
+                    <a class="btn btn-outline-primary ml-2" asp-area="" asp-controller="Login" asp-action="Index">@Localizer["Login"]</a>
+                }
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -27,9 +49,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MarketExpress - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - MarketExpress - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Localizer["Privacy"]</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.7/datatables.min.js"></script>
