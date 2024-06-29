@@ -15,6 +15,16 @@ namespace MarketExpress.Repository
             this._bancoContext = bancoContext;
         }
 
+        public UserModel SearchLogin(string login)
+        {
+            return _bancoContext.Users.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
+        public UserModel SearchEmailLogin(string email, string login)
+        {
+            return _bancoContext.Users.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == login.ToUpper());
+        }
+
         public UserModel ListIdUser(int id)
         {
             return _bancoContext.Users.FirstOrDefault(x => x.Id == id);
@@ -26,6 +36,7 @@ namespace MarketExpress.Repository
         public UserModel Add(UserModel Users)
         {
             Users.DateRegistration = DateTime.Now;
+            Users.SetPasswordHash();
             _bancoContext.Users.Add(Users);
             _bancoContext.SaveChanges();
             return Users;
@@ -47,6 +58,26 @@ namespace MarketExpress.Repository
             _bancoContext.SaveChanges();
             return UsersDB;
         }
+
+        public UserModel ChangePassword(ChangePasswordModel changePasswordModel)
+        {
+            UserModel userDB = ListIdUser(changePasswordModel.Id);
+
+            if (userDB == null) throw new Exception("An error occurred while updating the password, User Not Found");
+
+            if (!userDB.PasswordValid(changePasswordModel.CurrentPassword)) throw new Exception("Current password does not match");
+
+            if (userDB.PasswordValid(changePasswordModel.NewPassword)) throw new Exception("New password must be different from the current password.");
+
+            userDB.SetNewPassword(changePasswordModel.NewPassword); 
+            userDB.DateChanged = DateTime.Now; 
+
+            _bancoContext.Users.Update(userDB);
+            _bancoContext.SaveChanges();
+
+            return userDB;
+        }
+
 
         public bool Delete(int id)
         {

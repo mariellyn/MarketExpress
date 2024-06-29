@@ -1,0 +1,49 @@
+﻿@model LoginModel
+
+@{
+    Layout = "_LayoutLoggedOut";
+    ViewData["Title"] = "Login";
+}
+
+@if (TempData["MessageError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+        @TempData["MessageError"]
+    </div>
+
+}
+
+
+@if (TempData["MessageSucess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label=Close"">X</button>
+        @TempData["MessageSucess"]
+    </div>
+
+}
+
+
+<form asp-controller="Login" asp-action="Login" method="post">
+    <div class="mb-3">
+        <label for="login" class="form-label">Login</label>
+        <input type="text" asp-for="Login" class="form-control" id="login" >
+        @Html.ValidationMessageFor(x => x.Login)
+       
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" asp-for="Password" class="form-control" id="Password">
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+
+
+    <p class="mb-4 text-sm mx-auto">
+        Forgot password ?
+        <a asp-action="ResetPassword" asp-controller="Login" class="text-primary text-gradient font-weight-bold"> Reset password </a>
+
+    </p>
+
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+</form>

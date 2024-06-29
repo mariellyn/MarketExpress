@@ -10,6 +10,9 @@ namespace MarketExpress.Repository
 {
     public interface IUserRepository
     {
+
+        UserModel SearchLogin(string login);
+        UserModel SearchEmailLogin(string email , string login);
         List<UserModel> UserAll();
         UserModel ListIdUser(int id);
         
@@ -17,6 +20,8 @@ namespace MarketExpress.Repository
 
         UserModel Update(UserModel user);
 
+        UserModel ChangePassword(ChangePasswordModel changePasswordModel);
+ 
         bool Delete(int id);
     }
 }

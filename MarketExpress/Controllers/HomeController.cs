@@ -1,4 +1,5 @@
-﻿using MarketExpress.Models;
+﻿using MarketExpress.Filters;
+using MarketExpress.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace MarketExpress.Controllers
 {
+
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

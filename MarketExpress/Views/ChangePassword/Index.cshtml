@@ -1,0 +1,52 @@
+﻿@using MarketExpress.Enums
+@model ChangePasswordModel
+
+@{
+    ViewData["Title"] = "Change Password user";
+}
+<div class="text-center">
+    <h1 class="display-4">Change Password user</h1>
+</div>
+
+@if (TempData["MessageSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+        @TempData["MessageSuccess"]
+    </div>
+}
+
+@if (TempData["MessageError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+        @TempData["MessageError"]
+    </div>
+}
+
+<form asp-controller="ChangePassword" asp-action="Change" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <div class="form-group mb-3">
+                <label for="currentPassword">Current Password</label>
+                <input type="password" asp-for="CurrentPassword" class="form-control" placeholder="Enter Current Password user">
+                @Html.ValidationMessageFor(x => x.CurrentPassword)
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="newPassword">New Password</label>
+                <input type="password" asp-for="NewPassword" class="form-control" placeholder="Enter new password user">
+                @Html.ValidationMessageFor(x => x.NewPassword)
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" asp-for="ConfirmNewPassword" class="form-control" placeholder="Confirm new Password user">
+                @Html.ValidationMessageFor(x => x.ConfirmNewPassword)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Change</button>
+    <a class="btn btn-secondary btn-block" asp-controller="User" asp-action="Home" role="button">Back</a>
+</form>
